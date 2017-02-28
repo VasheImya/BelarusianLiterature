@@ -1,0 +1,14 @@
+.authorCard {
+	width: 220px;
+	height: 220px;
+	border: black solid 1px;
+	color: black;
+}
+
+.authorCard img {
+	margin-left: 10px;
+}
+
+.authorCard p {
+	text-align: center;
+}
