@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Prototype_author-info</title>
-	<!-- <link rel="stylesheet" href="base.css" /> -->
+	<link rel="stylesheet" href="info.css" />
 	<script src="https://unpkg.com/react@15.3.0/dist/react.js"></script>
 	<script src="https://unpkg.com/react-dom@15.3.0/dist/react-dom.js"></script>
 	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -12,23 +12,71 @@
 </head>
 <body>
 	<div id="content"></div>
-  	<script type="text/babel">
-			
+ 		<script type="text/babel">
+
 			class AuthorMain extends React.Component {
 				render() {
 					return (
 						<div className='authorInfo'>
-							<img src={this.props.avatar} alt="">
+							<img src="1.png" alt=""></img>
 							<h3 className='authorName'>
-								{this.props.author}
+								FirstName LastName
 							</h3>
 							<p className='authorBasicInfo'>
-								"Дата нараджэння: " + 
+								Born: 1234
+								Die: 1234 
+								Another Info
 							</p>
 						</div>
 					);
 				}
 			};
+
+			class AuthorDetails extends React.Component {
+
+				constructor(props) {
+					super(props);
+					this.state = {open: false}; 
+				}
+
+  			toggleOpen() { 
+  				this.setState({open: !this.state.open}) 
+  			}
+
+				render() {
+					var className = this.state.open ? "opened" : "closed";
+
+					return (
+						<div className = "foldable">
+							<div className = "headerInfo" onClick={e => {e.preventDefault();
+									this.toggleOpen();
+								}}>
+								{ this.props.headerInfo }
+							</div>
+							<div className = {className}>
+								{ this.props.children }
+							</div>
+						</div>
+					);
+					
+				}
+			};
+
+
+
+			function container() {
+				return (
+				<div>
+					<AuthorMain />
+					<AuthorDetails headerInfo = "ghjk">xcvbn</AuthorDetails>
+					</div>
+				);
+			}
+
+				
+
+			const content = document.getElementById('content');
+    	ReactDOM.render(<container />, content);
 
 		</script>
 </body>

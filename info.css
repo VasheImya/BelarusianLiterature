@@ -1,0 +1,19 @@
+.authorInfo {
+	padding: 10% 0 0 20%;
+}
+
+.foldable .opened,
+.foldable .closed {
+	transition: 0.5s;
+}
+
+.foldable .opened {
+	max-height: 10px;
+	visibility: visible;;
+}
+
+.foldable .closed {
+	max-height: 10px;
+	visibility: hidden;
+}
+
